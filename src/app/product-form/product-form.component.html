@@ -1,0 +1,30 @@
+<div class="container">
+    <form [formGroup]="phoneForm">
+
+        <div formArrayName="phones">
+          <div *ngFor="let item of phonePoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
+          <label>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="telefone"  class="form-control"  id="telefone"  formControlName="phone" id="phone-number">
+            </mat-form-field>
+          </label>
+          <button type="button" (click)="addSellingPoint()" mat-raised-button color="primary"> + </button>
+          <span *ngIf = "value > 1">
+            <button type="button" (click)="deleteSellingPoint(pointIndex)" mat-raised-button color="warn"> - </button>
+          </span>
+         
+          
+          </div>
+          
+        </div>
+
+        <div class="save">
+            <button mat-raised-button color="accent" (click)="save()">Salvar</button>
+        </div>
+        
+      
+      </form>
+          
+      
+      {{ this.phoneForm.value | json }}
+</div>
