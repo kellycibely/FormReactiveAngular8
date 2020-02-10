@@ -3,28 +3,70 @@
 
         <div formArrayName="phones">
           <div *ngFor="let item of phonePoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
-          <label>
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="telefone"  class="form-control"  id="telefone"  formControlName="phone" id="phone-number">
-            </mat-form-field>
-          </label>
-          <button type="button" (click)="addSellingPoint()" mat-raised-button color="primary"> + </button>
-          <span *ngIf = "value > 1">
-            <button type="button" (click)="deleteSellingPoint(pointIndex)" mat-raised-button color="warn"> - </button>
-          </span>
-         
-          
+            <label>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="minimumValue"  class="form-control"  id="telefone"  formControlName="minimumValue" id="phone-number">
+              </mat-form-field>
+            </label>
+            <label>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="value"  class="form-control"  id="telefone"  formControlName="value" id="phone-number">
+              </mat-form-field>
+            </label>
+              <label>
+                <input
+                  formControlName="dinheiro"
+                  id="dinheiros" 
+                  type="checkbox" 
+                  > Dinheiro
+              </label>
+              <label>
+                <input
+                  formControlName="valegas"
+                  id="saveUserNameCheckBox" 
+                  type="checkbox" 
+                   /> vale gas
+              </label>
+              <label>
+                <input
+                  formControlName="debito"
+                  id="saveUserNameCheckBox" 
+                  type="checkbox" 
+                   /> debito
+              </label>
+              <label>
+                <input
+                  formControlName="carteira"
+                  id="saveUserNameCheckBox" 
+                  type="checkbox" 
+                   /> carteira
+              </label>
+              <label>
+                <input
+                  formControlName="creditoCliente"
+                  id="saveUserNameCheckBox" 
+                  type="checkbox" 
+                   /> credito Cliente
+              </label>
+              <label>
+              <input
+                  formControlName="cartaoMaster"
+                  id="saveUserNameCheckBox" 
+                  type="checkbox" 
+                   /> cartao Master
+              </label>
+            <span>
+              <button type="button" (click)="deleteSellingPoint(pointIndex)" mat-raised-button color="warn"> - </button>
+            </span>
           </div>
-          
         </div>
+        <button type="button" (click)="addSellingPoint()" mat-raised-button color="primary"> + </button>
 
         <div class="save">
             <button mat-raised-button color="accent" (click)="save()">Salvar</button>
         </div>
-        
-      
       </form>
-          
-      
       {{ this.phoneForm.value | json }}
+  
 </div>
+
